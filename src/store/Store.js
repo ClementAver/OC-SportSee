@@ -276,23 +276,28 @@ export default class Store {
       this.USER_ACTIVITY = fetch(`http://localhost:3001/user/${userId}/activity`)
         .then((res) => {
           if (res.ok) {
-            return res;
+            const result = res.json();
+            return result;
           }
           throw new Error("server response error");
         })
         .catch((err) => console.log(err));
+
       this.USER_AVERAGE_SESSIONS = fetch(`http://localhost:3001/user/${userId}/average-sessions`)
         .then((res) => {
           if (res.ok) {
-            return res;
+            const result = res.json();
+            return result;
           }
           throw new Error("server response error");
         })
         .catch((err) => console.log(err));
+
       this.USER_PERFORMANCE = fetch(`http://localhost:3001/user/${userId}/performance`)
         .then((res) => {
           if (res.ok) {
-            return res;
+            const result = res.json();
+            return result;
           }
           throw new Error("server response error");
         })
