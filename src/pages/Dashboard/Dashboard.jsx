@@ -13,26 +13,18 @@ export default function Dashboard() {
     const mocked = false;
     const store = new Store(parseInt(id), mocked);
 
-    if (mocked) {
-      setUserMainData(store.getUserMainData());
-      setUserActivity(store.getUserActivity());
-      setUserAverageSessions(store.getUserAverageSessions());
-      setUserPerformance(store.getUserPerformance());
-    } else {
-      store.getUserMainData().then((res) => {
-        setUserMainData(res.data);
-      });
-      store.getUserActivity().then((res) => {
-        setUserActivity(res.data);
-      });
-      store.getUserAverageSessions().then((res) => {
-        setUserAverageSessions(res.data);
-      });
-      store.getUserPerformance().then((res) => {
-        console.log(res.data);
-        setUserPerformance(res.data);
-      });
-    }
+    store.getUserMainData().then((res) => {
+      setUserMainData(res.data);
+    });
+    store.getUserActivity().then((res) => {
+      setUserActivity(res.data);
+    });
+    store.getUserAverageSessions().then((res) => {
+      setUserAverageSessions(res.data);
+    });
+    store.getUserPerformance().then((res) => {
+      setUserPerformance(res.data);
+    });
   }, [id]);
 
   if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
