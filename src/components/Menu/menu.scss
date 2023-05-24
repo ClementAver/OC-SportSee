@@ -1,0 +1,59 @@
+.menu {
+  background-color: black;
+  color: white;
+  width: 7.3rem;
+  height: calc(100vh - 5.625rem);
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+
+    background-color: white;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li:nth-child(3) {
+    svg {
+      width: 2.4rem;
+    }
+  }
+
+  li:nth-child(4) {
+    svg {
+      width: 2.1rem;
+    }
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  svg {
+    width: 2rem;
+  }
+
+  span {
+    position: absolute;
+    bottom: 3.7rem;
+
+    writing-mode: vertical-rl;
+    font-size: 0.75rem;
+    transform: rotate(180deg);
+  }
+}
