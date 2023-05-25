@@ -26,6 +26,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+
+  a {
+    color: hsla(0, 0%, 0%, 0);
+    font-size: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline: 0;
+      cursor: pointer;
+    }
   }
 
   li:nth-child(3) {

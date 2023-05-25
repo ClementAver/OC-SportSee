@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Store from "../../store/Store";
+import UserMainData from "../../models/UserMainData";
+import UserActivity from "../../models/UserActivity";
+import UserAverageSessions from "../../models/UserAverageSessions";
+import UserPerformance from "../../models/UserPerformance";
 
 export default function Dashboard() {
   const { id } = useParams();
@@ -14,26 +18,30 @@ export default function Dashboard() {
     const store = new Store(parseInt(id), mocked);
 
     store.getUserMainData().then((res) => {
-      setUserMainData(res.data);
+      const user = new UserMainData(res);
+      setUserMainData(user);
     });
     store.getUserActivity().then((res) => {
-      setUserActivity(res.data);
+      const user = new UserActivity(res);
+      setUserActivity(user);
     });
     store.getUserAverageSessions().then((res) => {
-      setUserAverageSessions(res.data);
+      const user = new UserAverageSessions(res);
+      setUserAverageSessions(user);
     });
     store.getUserPerformance().then((res) => {
-      setUserPerformance(res.data);
+      const user = new UserPerformance(res);
+      setUserPerformance(user);
     });
   }, [id]);
 
-  if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
+  if (userMainData !== null && userActivity !== null && userAverageSessions !== null) {
     return (
       <>
         <h1>Dashboard</h1>
         <p>{userMainData.userInfos.firstName}</p>
         <p>{userActivity.sessions[0].day}</p>
-        <p>{userAverageSessions.sessions[0].sessionLength}</p>
+        <p>{userAverageSessions.sessions[0].day}</p>
         <p>{userPerformance.data[0].value}</p>
       </>
     );
