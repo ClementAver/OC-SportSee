@@ -5,6 +5,7 @@ import UserMainData from "../../models/UserMainData";
 import UserActivity from "../../models/UserActivity";
 import UserAverageSessions from "../../models/UserAverageSessions";
 import UserPerformance from "../../models/UserPerformance";
+import Daily from "../../components/Daily/Daily";
 
 export default function Dashboard() {
   const { id } = useParams();
@@ -35,15 +36,15 @@ export default function Dashboard() {
     });
   }, [id]);
 
-  if (userMainData !== null && userActivity !== null && userAverageSessions !== null) {
+  if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
     return (
-      <>
-        <h1>Dashboard</h1>
-        <p>{userMainData.userInfos.firstName}</p>
-        <p>{userActivity.sessions[0].day}</p>
-        <p>{userAverageSessions.sessions[0].day}</p>
-        <p>{userPerformance.data[0].value}</p>
-      </>
+      <main className="dashboard">
+        <h1>
+          Bonjour <span className="name">{userMainData.userInfos.firstName}</span>
+        </h1>
+        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <Daily userActivity={userActivity.sessions} />
+      </main>
     );
   }
 }

@@ -1,0 +1,19 @@
+.dashboard {
+  max-width: 64rem;
+  width: 100%;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+
+  h1 {
+    grid-column: 1/4;
+    height: min-content;
+
+    & + p {
+      grid-column: 1/4;
+      height: min-content;
+    }
+  }
+}

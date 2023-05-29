@@ -1,0 +1,64 @@
+.daily {
+  grid-column: 1/4;
+  width: 100%;
+  height: 20rem;
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+
+  .text {
+    height: fit-content;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+    }
+
+    > div {
+      display: flex;
+      align-items: baseline;
+      color: #74798c;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  .legend-b {
+    min-width: 0.6rem;
+    max-width: 0.6rem;
+    min-height: 0.6rem;
+    max-height: 0.6rem;
+    border-radius: 0.6rem;
+    background-color: black;
+    margin-right: 0.8rem;
+  }
+
+  .legend-b + span {
+    margin-right: 2rem;
+  }
+
+  .legend-r {
+    min-width: 0.6rem;
+    max-width: 0.6rem;
+    min-height: 0.6rem;
+    max-height: 0.6rem;
+    border-radius: 0.6rem;
+    background-color: #e60000;
+    margin-right: 0.8rem;
+  }
+
+  .custom-tooltip {
+    background-color: #e60000;
+    padding: 0.6rem;
+    color: white;
+    font-size: 0.8rem;
+  }
+}

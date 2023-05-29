@@ -7,10 +7,9 @@ $brand-color: #ff0101;
 }
 
 .App {
-  display: flex;
-  flex-flow: row wrap;
-  place-content: start;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 7.3rem 1fr;
+  justify-items: center;
 }
 
 a {
@@ -28,6 +27,11 @@ span {
   font-family: "Roboto", sans-serif;
 }
 
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -39,5 +43,11 @@ span {
   border: 0;
 }
 
+.name {
+  color: red;
+}
+
 @import "./components/Header/header";
 @import "./components/Menu/menu";
+@import "./pages/Dashboard/dashboard";
+@import "./components/Daily/daily";
