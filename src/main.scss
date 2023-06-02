@@ -7,9 +7,13 @@ $brand-color: #ff0101;
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 7.3rem 1fr;
-  justify-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 5.625rem;
+  margin-left: 7.3rem;
 }
 
 a {
@@ -51,3 +55,6 @@ h1 {
 @import "./components/Menu/menu";
 @import "./pages/Dashboard/dashboard";
 @import "./components/Daily/daily";
+@import "./components/Average/average";
+@import "./components/Skills/skills";
+@import "./components/Score/score";

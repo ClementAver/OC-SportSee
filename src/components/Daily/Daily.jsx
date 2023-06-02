@@ -24,7 +24,6 @@ export default function Daily(userActivity) {
       count++;
       result.push({ name: count, poids: key.kilogram, calories: key.calories });
     });
-    console.log(result);
     setData(result);
   }, [userActivity]);
 
@@ -42,13 +41,13 @@ export default function Daily(userActivity) {
 
       <ResponsiveContainer
         width="100%"
-        height={250}
+        height="100%"
       >
         <BarChart
           data={data}
           width="100%"
           height="100%"
-          margin={{ top: 20, right: 0, bottom: 0, left: 20 }}
+          margin={{ top: 20, right: 20, bottom: 16, left: 40 }}
           barGap={8}
           barSize={8}
         >
@@ -72,17 +71,6 @@ export default function Daily(userActivity) {
             tickLine={false}
             axisLine={false}
           />
-          <XAxis
-            type="number"
-            domain={["dataMin", "dataMax"]}
-            dataKey="name"
-            padding={{ left: 12, right: 12 }}
-          />
-
-          <YAxis
-            orientation="right"
-            interval={1}
-          ></YAxis>
           <Bar
             dataKey="poids"
             fill="#000"

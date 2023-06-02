@@ -1,19 +1,21 @@
 .dashboard {
   max-width: 64rem;
   width: 100%;
-  grid-column: 2/-1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: min-content;
-  grid-auto-rows: min-content;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
 
   h1 {
-    grid-column: 1/4;
+    width: 100%;
     height: min-content;
+    margin: 3rem 0 0.5rem 0;
 
     & + p {
-      grid-column: 1/4;
+      width: 100%;
       height: min-content;
+      margin-bottom: 4rem;
     }
   }
 }

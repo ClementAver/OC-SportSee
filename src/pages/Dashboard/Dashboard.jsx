@@ -6,6 +6,9 @@ import UserActivity from "../../models/UserActivity";
 import UserAverageSessions from "../../models/UserAverageSessions";
 import UserPerformance from "../../models/UserPerformance";
 import Daily from "../../components/Daily/Daily";
+import Average from "../../components/Average/Average";
+import Skills from "../../components/Skills/Skills";
+import Score from "../../components/Score/Score";
 
 export default function Dashboard() {
   const { id } = useParams();
@@ -44,6 +47,9 @@ export default function Dashboard() {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <Daily userActivity={userActivity.sessions} />
+        <Average userAverageSessions={userAverageSessions} />
+        <Skills userPerformance={userPerformance} />
+        <Score userMainData={userMainData} />
       </main>
     );
   }

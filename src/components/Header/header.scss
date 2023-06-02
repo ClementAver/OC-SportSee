@@ -1,5 +1,7 @@
 .header {
-  grid-column: 1/-1;
+  position: fixed;
+  top: 0;
+
   background-color: black;
   color: white;
   width: 100%;
@@ -12,7 +14,7 @@
   box-shadow: 0 0.2rem 0.6rem hsla(0, 0%, 0%, 0.5);
 
   svg {
-    width: 11.125rem;
+    min-width: 11.125rem;
   }
 
   nav {
