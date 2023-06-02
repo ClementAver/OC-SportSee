@@ -28,12 +28,12 @@ const getKind = (arg) => {
   return kind;
 };
 
-export default function Skills(userPerformance) {
+export default function Skills({ userPerformance }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const result = [];
-    userPerformance.userPerformance.data.forEach((key) => {
+    userPerformance.data.forEach((key) => {
       result.push({ kind: getKind(key.kind), value: key.value });
       result.unshift(result.pop());
     });

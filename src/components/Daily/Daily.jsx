@@ -14,13 +14,13 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-export default function Daily(userActivity) {
+export default function Daily({ userActivity }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const result = [];
     let count = 0;
-    userActivity.userActivity.forEach((key) => {
+    userActivity.forEach((key) => {
       count++;
       result.push({ name: count, poids: key.kilogram, calories: key.calories });
     });

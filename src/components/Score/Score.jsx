@@ -1,16 +1,16 @@
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { useState, useEffect } from "react";
 
-export default function Score(userMainData) {
+export default function Score({ userMainData }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const result = [
-      { name: "Group A", value: userMainData.userMainData.todayScore },
+      { name: "Group A", value: userMainData.todayScore },
       {
         name: "Group B",
         value: (() => {
-          return 1 - userMainData.userMainData.todayScore;
+          return 1 - userMainData.todayScore;
         })(),
       },
     ];
@@ -22,7 +22,7 @@ export default function Score(userMainData) {
       <h2>Score</h2>
       <div className="layout">
         <p>
-          <span>{userMainData.userMainData.todayScore * 100}%</span>
+          <span>{userMainData.todayScore * 100}%</span>
           <br /> de votre
           <br />
           objectif

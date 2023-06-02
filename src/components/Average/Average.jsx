@@ -35,13 +35,13 @@ const CustomCursor = (props) => {
   );
 };
 
-export default function Average(userAverageSessions) {
+export default function Average({ userAverageSessions }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const days = ["L", "M", "M", "J", "V", "S", "D"];
     const result = [];
-    userAverageSessions.userAverageSessions.sessions.forEach((key) => {
+    userAverageSessions.sessions.forEach((key) => {
       result.push({ day: days[key.day - 1], sessionLength: key.sessionLength });
     });
     setData(result);
