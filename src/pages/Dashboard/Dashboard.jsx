@@ -21,22 +21,42 @@ export default function Dashboard() {
     const mocked = true;
     const store = new Store(parseInt(id), mocked);
 
-    store.getUserMainData().then((res) => {
-      const user = new UserMainData(res);
-      setUserMainData(user);
-    });
-    store.getUserActivity().then((res) => {
-      const user = new UserActivity(res);
-      setUserActivity(user);
-    });
-    store.getUserAverageSessions().then((res) => {
-      const user = new UserAverageSessions(res);
-      setUserAverageSessions(user);
-    });
-    store.getUserPerformance().then((res) => {
-      const user = new UserPerformance(res);
-      setUserPerformance(user);
-    });
+    store
+      .getUserMainData()
+      .then((res) => {
+        const user = new UserMainData(res);
+        setUserMainData(user);
+      })
+      .catch((err) => {
+        setUserMainData("id not found.");
+      });
+    store
+      .getUserActivity()
+      .then((res) => {
+        const user = new UserActivity(res);
+        setUserActivity(user);
+      })
+      .catch((err) => {
+        setUserActivity("id not found.");
+      });
+    store
+      .getUserAverageSessions()
+      .then((res) => {
+        const user = new UserAverageSessions(res);
+        setUserAverageSessions(user);
+      })
+      .catch((err) => {
+        setUserAverageSessions("id not found.");
+      });
+    store
+      .getUserPerformance()
+      .then((res) => {
+        const user = new UserPerformance(res);
+        setUserPerformance(user);
+      })
+      .catch((err) => {
+        setUserPerformance("id not found.");
+      });
   }, [id]);
 
   if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
@@ -45,12 +65,14 @@ export default function Dashboard() {
         <h1>
           Bonjour <span className="name">{userMainData.userInfos.firstName}</span>
         </h1>
-        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
         <Daily userActivity={userActivity.sessions} />
         <Average userAverageSessions={userAverageSessions} />
         <Skills userPerformance={userPerformance} />
         <Score userMainData={userMainData} />
       </main>
     );
+  } else if (userMainData === "id not found." || userActivity === "id not found." || userAverageSessions === "id not found." || userPerformance === "id not found.") {
+    throw new Error(userMainData);
   }
 }
