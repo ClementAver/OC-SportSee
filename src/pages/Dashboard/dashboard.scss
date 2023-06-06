@@ -3,19 +3,30 @@
   width: 100%;
   box-sizing: border-box;
 
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+  margin: 0 2rem 6rem 2rem;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 52rem;
+  }
 
   h1 {
-    width: 100%;
+    grid-column: 1/-1;
     height: min-content;
     margin: 3rem 0 0.5rem 0;
 
     & + p {
+      grid-column: 1/-1;
       width: 100%;
       height: min-content;
       margin-bottom: 4rem;
+
+      @media screen and (max-width: 1200px) {
+        margin-bottom: 2rem;
+      }
     }
   }
 }

@@ -1,0 +1,40 @@
+.not-found {
+  max-width: 64rem;
+  width: 100%;
+  height: calc(100vh - 5.625rem);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff0101;
+  }
+}
+
+.unknow {
+  background-color: #ff0101;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+
+  display: flex;
+  place-content: center;
+  overflow: hidden;
+
+  svg {
+    width: 80%;
+    transform: translateY(20%);
+  }
+}

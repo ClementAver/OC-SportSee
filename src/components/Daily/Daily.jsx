@@ -19,10 +19,8 @@ export default function Daily({ userActivity }) {
 
   useEffect(() => {
     const result = [];
-    let count = 0;
     userActivity.forEach((key) => {
-      count++;
-      result.push({ name: count, poids: key.kilogram, calories: key.calories });
+      result.push({ name: key.day.slice(-2), poids: key.kilogram, calories: key.calories });
     });
     setData(result);
   }, [userActivity]);

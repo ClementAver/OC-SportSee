@@ -9,11 +9,11 @@ $brand-color: #ff0101;
 .App {
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
   justify-content: center;
   box-sizing: border-box;
   margin-top: 5.625rem;
   margin-left: 7.3rem;
+  min-height: calc(100vh - 5.625rem);
 }
 
 a {
@@ -58,3 +58,5 @@ h1 {
 @import "./components/Average/average";
 @import "./components/Skills/skills";
 @import "./components/Score/score";
+@import "./components/Count/count";
+@import "./pages/NotFound/notFound";
