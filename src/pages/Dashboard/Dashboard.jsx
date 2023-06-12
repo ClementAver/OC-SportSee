@@ -61,6 +61,9 @@ export default function Dashboard() {
   }, [id]);
 
   if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
+    if (userMainData === "id not found." || userActivity === "id not found." || userAverageSessions === "id not found." || userPerformance === "id not found.") {
+      throw new Error(userMainData);
+    }
     return (
       <main className="dashboard">
         <h1>
@@ -145,7 +148,5 @@ export default function Dashboard() {
         </div>
       </main>
     );
-  } else if (userMainData === "id not found." || userActivity === "id not found." || userAverageSessions === "id not found." || userPerformance === "id not found.") {
-    throw new Error(userMainData);
   }
 }
