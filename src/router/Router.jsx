@@ -11,11 +11,10 @@ const router = createBrowserRouter([
       {
         path: "/:id",
         element: <Dashboard />,
-        errorElement: <Error />,
       },
       {
         path: "*",
-        element: <Error />,
+        element: <Error message="La page que vous recherchez n'existe pas." />,
       },
     ],
   },

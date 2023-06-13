@@ -20,7 +20,7 @@ export default function Dashboard() {
   const [userPerformance, setUserPerformance] = useState(null);
 
   useEffect(() => {
-    const mocked = true;
+    const mocked = false;
     const store = new Store(parseInt(id), mocked);
 
     store.getUserMainData().then((res) => {
