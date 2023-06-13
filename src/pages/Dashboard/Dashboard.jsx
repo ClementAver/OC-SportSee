@@ -10,6 +10,7 @@ import Average from "../../components/Average/Average";
 import Skills from "../../components/Skills/Skills";
 import Score from "../../components/Score/Score";
 import Count from "../../components/Count/Count";
+import Error from "../Error/Error";
 
 export default function Dashboard() {
   const { id } = useParams();
@@ -22,47 +23,50 @@ export default function Dashboard() {
     const mocked = true;
     const store = new Store(parseInt(id), mocked);
 
-    store
-      .getUserMainData()
-      .then((res) => {
-        const user = new UserMainData(res);
-        setUserMainData(user);
-      })
-      .catch((err) => {
-        setUserMainData("id not found.");
-      });
-    store
-      .getUserActivity()
-      .then((res) => {
-        const user = new UserActivity(res);
-        setUserActivity(user);
-      })
-      .catch((err) => {
-        setUserActivity("id not found.");
-      });
-    store
-      .getUserAverageSessions()
-      .then((res) => {
-        const user = new UserAverageSessions(res);
-        setUserAverageSessions(user);
-      })
-      .catch((err) => {
-        setUserAverageSessions("id not found.");
-      });
-    store
-      .getUserPerformance()
-      .then((res) => {
-        const user = new UserPerformance(res);
-        setUserPerformance(user);
-      })
-      .catch((err) => {
-        setUserPerformance("id not found.");
-      });
+    store.getUserMainData().then((res) => {
+      if (res.message) {
+        setUserMainData({ message: res.message, labor: res.labor });
+        return;
+      }
+      const user = new UserMainData(res);
+      setUserMainData(user);
+    });
+
+    store.getUserActivity().then((res) => {
+      if (res.message) {
+        setUserActivity({ message: res.message });
+        return;
+      }
+      const user = new UserActivity(res);
+      setUserActivity(user);
+    });
+
+    store.getUserAverageSessions().then((res) => {
+      if (res.message) {
+        setUserAverageSessions({ message: res.message });
+        return;
+      }
+      const user = new UserAverageSessions(res);
+      setUserAverageSessions(user);
+    });
+    store.getUserPerformance().then((res) => {
+      if (res.message) {
+        setUserPerformance({ message: res.message });
+        return;
+      }
+      const user = new UserPerformance(res);
+      setUserPerformance(user);
+    });
   }, [id]);
 
   if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
-    if (userMainData === "id not found." || userActivity === "id not found." || userAverageSessions === "id not found." || userPerformance === "id not found.") {
-      throw new Error(userMainData);
+    if (userMainData.message) {
+      return (
+        <Error
+          message={userMainData.message}
+          labor={userMainData.labor}
+        />
+      );
     }
     return (
       <main className="dashboard">

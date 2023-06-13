@@ -12,16 +12,18 @@ export default class Store {
       if (user) {
         return new Promise((resolve) => resolve({ data: user }));
       } else {
-        throw new Error("server response error");
+        return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
       }
     } else {
-      return fetch(`http://localhost:3001/user/${this.userId}`).then((res) => {
-        if (res.ok) {
-          const result = res.json();
-          return result;
-        }
-        throw new Error("server response error");
-      });
+      return fetch(`http://localhost:3001/user/${this.userId}`)
+        .then((res) => {
+          if (res.ok) {
+            const result = res.json();
+            return result;
+          }
+          return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
+        })
+        .catch((err) => new Promise((resolve) => resolve({ message: "Ce service est momentanément indisponible.", labor: "Veuillez réessayer plus tard." })));
     }
   }
 
@@ -31,16 +33,18 @@ export default class Store {
       if (user) {
         return new Promise((resolve) => resolve({ data: user }));
       } else {
-        throw new Error("server response error");
+        return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
       }
     } else {
-      return fetch(`http://localhost:3001/user/${this.userId}/activity`).then((res) => {
-        if (res.ok) {
-          const result = res.json();
-          return result;
-        }
-        throw new Error("server response error");
-      });
+      return fetch(`http://localhost:3001/user/${this.userId}/activity`)
+        .then((res) => {
+          if (res.ok) {
+            const result = res.json();
+            return result;
+          }
+          return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
+        })
+        .catch((err) => new Promise((resolve) => resolve({ message: "Ce service est momentanément indisponible.", labor: "Veuillez réessayer plus tard." })));
     }
   }
 
@@ -50,16 +54,18 @@ export default class Store {
       if (user) {
         return new Promise((resolve) => resolve({ data: user }));
       } else {
-        throw new Error("server response error");
+        return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
       }
     } else {
-      return fetch(`http://localhost:3001/user/${this.userId}/average-sessions`).then((res) => {
-        if (res.ok) {
-          const result = res.json();
-          return result;
-        }
-        throw new Error("server response error");
-      });
+      return fetch(`http://localhost:3001/user/${this.userId}/average-sessions`)
+        .then((res) => {
+          if (res.ok) {
+            const result = res.json();
+            return result;
+          }
+          return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
+        })
+        .catch((err) => new Promise((resolve) => resolve({ message: "Ce service est momentanément indisponible.", labor: "Veuillez réessayer plus tard." })));
     }
   }
 
@@ -69,16 +75,18 @@ export default class Store {
       if (user) {
         return new Promise((resolve) => resolve({ data: user }));
       } else {
-        throw new Error("server response error");
+        return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
       }
     } else {
-      return fetch(`http://localhost:3001/user/${this.userId}/performance`).then((res) => {
-        if (res.ok) {
-          const result = res.json();
-          return result;
-        }
-        throw new Error("server response error");
-      });
+      return fetch(`http://localhost:3001/user/${this.userId}/performance`)
+        .then((res) => {
+          if (res.ok) {
+            const result = res.json();
+            return result;
+          }
+          return new Promise((resolve) => resolve({ message: "Cet utilisateur n'existe pas." }));
+        })
+        .catch((err) => new Promise((resolve) => resolve({ message: "Ce service est momentanément indisponible.", labor: "Veuillez réessayer plus tard." })));
     }
   }
 }

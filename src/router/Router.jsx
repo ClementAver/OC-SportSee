@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import NotFound from "../pages/NotFound/NotFound";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ const router = createBrowserRouter([
       {
         path: "/:id",
         element: <Dashboard />,
-        errorElement: <NotFound />,
+        errorElement: <Error />,
       },
       {
         path: "*",
-        element: <NotFound />,
+        element: <Error />,
       },
     ],
   },
