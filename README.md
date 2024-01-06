@@ -4,7 +4,7 @@
   <img alt="Static Badge" src="https://img.shields.io/badge/React-blue">
   <img alt="Static Badge" src="https://img.shields.io/badge/React%20Router%20-red">
   <img alt="Static Badge" src="https://img.shields.io/badge/Sass-pink">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Recharts-#40e0d0">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Recharts-25fde9">
 </div>
 
 Sportsee was a start-up dedicated to sports coaching. It wanted to add personalised tracking using graphs to its user's profile pages. The API calls had to be made using a dedicated service, not from our components. In addition, modelling classes were required to ensure that the data returned by the API was always correctly formatted.
