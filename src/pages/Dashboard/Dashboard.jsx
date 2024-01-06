@@ -20,7 +20,7 @@ export default function Dashboard() {
   const [userPerformance, setUserPerformance] = useState(null);
 
   useEffect(() => {
-    const mocked = false;
+    const mocked = true;
     const store = new Store(parseInt(id), mocked);
 
     store.getUserMainData().then((res) => {
@@ -59,7 +59,12 @@ export default function Dashboard() {
     });
   }, [id]);
 
-  if (userMainData !== null && userActivity !== null && userAverageSessions !== null && userPerformance !== null) {
+  if (
+    userMainData !== null &&
+    userActivity !== null &&
+    userAverageSessions !== null &&
+    userPerformance !== null
+  ) {
     if (userMainData.message) {
       return (
         <Error
@@ -71,7 +76,8 @@ export default function Dashboard() {
     return (
       <main className="dashboard">
         <h1>
-          Bonjour <span className="name">{userMainData.userInfos.firstName}</span>
+          Bonjour{" "}
+          <span className="name">{userMainData.userInfos.firstName}</span>
         </h1>
         <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
         <Daily userActivity={userActivity.sessions} />
